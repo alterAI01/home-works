@@ -14,5 +14,5 @@
 | Модель      | Режим работы      | Ветка репозитория |
 |-------------|------------------|------------------|
 | GPT_4 (может 3)       | Think Mode       | [`gpt`](https://github.com/alterAI01/home-works/tree/main/ai/task1/gpt) |
-| Gemini_Pro_2.5  | DeepResearch     | [`gemini`](https://github.com/alterAI01/home-works/tree/main/ai/task1/gemini) |
+| Gemini_Pro_2.5  | DeepResearch     | [`gemini`](https://github.com/alterAI01/home-works/tree/main/ai/task1/gemini_pro) |
 | DeepSeek_r1   | DeepThink        | [`deepseek`](https://github.com/alterAI01/home-works/tree/main/ai/task1/deepSeek) |
