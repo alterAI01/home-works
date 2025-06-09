@@ -1,0 +1,45 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.menu {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ========== Mobile styles ========== */
+/* Mobile styles */
+@media (max-width: 768px) {
+  .menu {
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Position directly below navbar */
+    left: 0;
+    width: 100%;
+    background: #fff;
+    transform: translateY(-150%);
+    /* transition: transform 0.3s ease;  УБРАТЬ ОТСЮДА ГЛОБАЛЬНЫЙ ПЕРЕХОД */
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-top: 0; /* Remove any default margin */
+  }
+
+  .menu.open {
+    transform: translateY(0);
+    transition: transform 0.3s ease; /* ДОБАВИТЬ ПЕРЕХОД СЮДА (для открытия) */
+  }
+
+  /* Если нужен переход и для закрытия, то нужно убедиться, 
+     что transition также применяется, когда класс .open удаляется. 
+     Часто это решается оставлением transition на базовом классе .menu, 
+     но тогда вы получаете анимацию при ресайзе, как вы описали.
+     Для более сложного контроля можно использовать JS для добавления временных 
+     классов анимации. */
+}
+

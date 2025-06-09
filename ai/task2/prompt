@@ -1,0 +1,25 @@
+ДАНО: компонент App и стили к нему
+
+function App() {
+return (
+<nav class="nav">
+  <button class="hamburger" id="menuBtn">Menu</button>
+  <ul class="menu" id="menu">
+    <li>Home</li><li>About</li><li>Contact</li>
+  </ul>
+</nav>
+);
+}
+
+/* styles.css */
+.nav {display:flex;justify-content:space-between;align-items:center;}
+.menu {display:flex;gap:2rem;}
+@media (max-width:768px){
+  .menu{flex-direction:column;position:absolute;top:64px;left:0;width:100%;
+        background:#fff;transform:translateY(-150%);transition:.3s ease;}
+  .menu.open{transform:translateY(0);}
+}
+
+ПРОБЛЕМА:
+1. identify the root cause of the slide-down glitch in 768px
+2. при переходе с разрешения 769px на 767px появляется ul menu и уплывает вверх 

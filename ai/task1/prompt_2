@@ -1,0 +1,7 @@
+Создай компонент Page
+
+В компоненте Page отспупи немного сверху и помести надпись Pricing. Под ней с небольшим отступом (56px)  компонент PricingCardContainer
+
+Background-color Page: black, text-color Pricing: white
+
+Помести PricingCardContainer в div. На этот div при viewport > 640px должно быть свойство justify-content: center;

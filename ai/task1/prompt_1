@@ -1,0 +1,95 @@
+1. Task: Wright a component PricingCard and PricingCardContainer
+2. interface PricingCardProps {
+  title: string; 
+  price: string; 
+  features: string[]; // 
+  isFeatured?: boolean; // flag that shows to us active status of the component
+  onClick: () => void;
+  // add props which you need
+}
+
+3. Technologies: react, typescript, tailwind
+
+4. styles:
+each component:
+   - All text should be centered
+   - Price should have font size 4x larger than default
+   - Content on all cards should be aligned at the same level
+   - Each card should have a "Subscribe" button at the bottom with uppercase text, no border, and no background
+   - border: none
+   - padding-top, padding-bottom: 24px 
+   - no margins between PricingCard
+
+active: 
+   - background: dark blue-gray (#34495e)
+   - text color: white (#fff)
+   - active card should have a height that is 48px greater than an ordinary card
+   - transform: translateY(-20px);
+   - inside component every element have padding-left, padding-right 24px 
+   - all hr inside PricingCard have padding-left, padding-right: 0;
+    
+ordinary:
+   - background: white (#fff)
+   - text color: dark blue-gray (#34495e), font-size: 14px
+   - all hr inside PricingCard have padding-left, padding-right: 24px;
+   - inside component every element have padding-left, padding-right 24px  
+
+4. Describe card (from top to bottom)
+  - title at the top of the card  
+  - price under the title:
+  - font-size: 36px.
+  - bold
+  - «$» and price smooth merged. Both have same font-size
+-hr:
+  - height: 1px, background-color: #E5E7EB.
+  - width 100% 
+  - left and right padding of active and ordinary card described earlier
+  - margin-bottom after hr: 12px
+- featured:
+  - create rows from prop features: string[]:
+     -each row:
+        - padding-top, padding-bottom: 8px
+        - font-size: 14px
+        - after every row have hr which described earlier
+- button SUBSCRIBE:
+  - minimum height: 100px
+  - padding-top: 16px, padding-bottom: 16px
+  - border: none
+  - background-color: inherit
+  - tab-index: -1
+  - text - uppercase
+
+5. PricingCardContainer:
+   - flex
+   - Don't use w-full for PricingCardContainer
+   - no gaps between PricingCards 
+   - no margins between PricingCard
+   - data to PricingCards: 
+   - Standard plan: $100, features: ['50,000 Requests', '4 contributors', 'Up to 3 GB storage space']
+   - Pro plan: $200, features: ['100,000 Requests', '7 contributors', 'Up to 6 GB storage space']
+   - Expert plan: $500, features: ['100,000 Requests', '11 contributors', 'Up to 10 GB storage space']
+
+6. Interactives:
+   - PricingCard should be clickable to select active card
+   - By default, the Pro plan should be featured
+   - Keyboard navigation should be fully supported with keys: ArrowRight, ArrowLeft, Tab
+   - Change default behavior of Tab key, make Tab key similar with key ArrowRight
+   - has keyboard focus ring
+   - If user use navigation on the last PricingCard, make the first PricingCard active and focus on him
+
+7. Responsability
+If viewport < 640px:
+ - PricingCardsContainer has vertical directions
+ - active PricingCard should have transform: translateY(0px)
+ - PricingCardsContainer have gap: 20px
+ - PricingCard width 100%
+If viewport > 640px:
+ - PricingCardsContainer have horizontal direction
+ - PricingCard width: auto
+
+OUTPUT:
+2 components: Pricing cards and PricingCardsContainer
+
+ATENTION:
+   - active PricingCard should have a height that is 48px greater than an ordinary PricingCard
+   - active PricingCard has transform: translateY(-20px);

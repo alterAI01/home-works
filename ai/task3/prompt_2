@@ -1,0 +1,13 @@
+function Dashboard() {
+  const [d, setD] = useState<number | null>(null);
+  useEffect(() => {
+    let t = 0;
+    for (let i = 0; i < 1e9; i++) { t += i; }
+    setD(t);
+  }, []);
+  return <div>{d}</div>;
+}
+
+TASKs:
+1. Rewrite Dashboard.tsx so the heavy loop runs in a Web Worker (no UI jank).
+2. Stretch: auto-generate a commit message + PR description summarising the fix.
