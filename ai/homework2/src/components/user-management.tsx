@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react'
-import { useAppDispatch, useAppSelector } from '../store'
-import { setUsers, deleteUser, type User } from '../store/user'
+import { useAppDispatch, useAppSelector } from './store'
+import { setUsers, deleteUser, type User } from './store/user'
 import {
   Table,
   TableBody,

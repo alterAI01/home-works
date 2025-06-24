@@ -2,7 +2,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import { store } from './components/store';
-import { UserManagement } from './components/user-management/user-management';
+import { UserManagement } from './components/user-management';
 import { useState } from 'react';
 import { Tabs, Tab, Box } from '@mui/material';
 import { PostsManagement } from './components/posts-management'
