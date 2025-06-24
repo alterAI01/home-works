@@ -60,9 +60,3 @@ src/
 - Add new tabs for Albums, Photos, Comments by following the pattern in `src/components/`.
 - Use the JSONPlaceholder API for more endpoints.
 - Add more filters, sorting, or relations as needed.
-
-## License
-MIT
-
-## Author
-Your Name (replace with your contact)
