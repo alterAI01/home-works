@@ -1,0 +1,233 @@
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
+  /* --- Reference Tokens (Palette) --- */
+  /* Эти токены представляют собой базовую палитру и обычно не меняются в зависимости от темы. */
+  /* Они не должны использоваться напрямую в стилях компонентов, а служат основой для System Tokens. */
+  /* [1, 2] */
+
+  /* Neutrals (Grays) - Основные нейтральные оттенки для построения интерфейса */
+  --ref-palette-neutral-0: rgb(255, 255, 255); /* Абсолютно белый, часто для основного фона светлой темы */
+  --ref-palette-neutral-50: rgb(248, 249, 250); /* Очень светлый серый, для едва заметных фонов или разделителей */
+  --ref-palette-neutral-100: rgb(241, 243, 245); /* Светло-серый, для фонов секций, карточек */
+  --ref-palette-neutral-200: rgb(233, 236, 239); /* Серый, для границ, неактивных элементов */
+  --ref-palette-neutral-300: rgb(222, 226, 230); /* Умеренно-серый, для более заметных границ */
+  --ref-palette-neutral-400: rgb(206, 212, 218); /* Средне-серый, для второстепенного текста */
+  --ref-palette-neutral-500: rgb(173, 181, 189); /* Серый, для иконок, текста-плейсхолдера */
+  --ref-palette-neutral-600: rgb(108, 117, 125); /* Темно-серый, для основного текста в некоторых темах */
+  --ref-palette-neutral-700: rgb(73, 80, 87);   /* Очень темно-серый, для акцентного текста или заголовков */
+  --ref-palette-neutral-800: rgb(52, 58, 64);   /* Почти черный, для фона темной темы или контрастного текста */
+  --ref-palette-neutral-900: rgb(33, 37, 41);   /* Глубокий черный, для основного текста светлой темы */
+  --ref-palette-neutral-950: rgb(23, 26, 29);   /* Очень глубокий черный, для фона темной темы */
+  --ref-palette-neutral-1000: rgb(18, 18, 18); /* Абсолютно черный, для максимального контраста в темной теме */
+
+  /* Brand Colors (Example: Blue) - Основные цвета бренда */
+  --ref-palette-brand-blue-50: rgb(239, 246, 255);  /* Очень светлый оттенок бренда, для фонов */
+  --ref-palette-brand-blue-100: rgb(219, 234, 254); /* Светлый оттенок бренда */
+  --ref-palette-brand-blue-300: rgb(147, 197, 253); /* Средний оттенок бренда, для акцентов, ссылок */
+  --ref-palette-brand-blue-500: rgb(59, 130, 246);  /* Основной цвет бренда, для кнопок, ключевых элементов */
+  --ref-palette-brand-blue-600: rgb(37, 99, 235);   /* Более темный оттенок бренда, для состояний hover/active */
+  --ref-palette-brand-blue-700: rgb(29, 78, 216);   /* Глубокий оттенок бренда, для активных состояний */
+  --ref-palette-brand-blue-900: rgb(30, 58, 138);   /* Очень темный оттенок бренда, для контрастных элементов */
+
+  /* Accent Colors - Дополнительные акцентные цвета для статусов, уведомлений и т.д. */
+  /* Success (Green) - Цвета для обозначения успеха */
+  --ref-palette-accent-green-50: rgb(240, 253, 244);  /* Очень светлый зеленый, для фонов уведомлений */
+  --ref-palette-accent-green-100: rgb(220, 252, 231); /* Светлый зеленый */
+  --ref-palette-accent-green-300: rgb(134, 239, 172); /* Средний зеленый, для текста/иконок на темном фоне */
+  --ref-palette-accent-green-500: rgb(34, 197, 94);   /* Основной зеленый для успеха */
+  --ref-palette-accent-green-700: rgb(21, 128, 61);   /* Темный зеленый, для текста/иконок на светлом фоне */
+
+  /* Error (Red) - Цвета для обозначения ошибок */
+  --ref-palette-accent-red-50: rgb(254, 242, 242);  /* Очень светлый красный, для фонов уведомлений */
+  --ref-palette-accent-red-100: rgb(254, 226, 226); /* Светлый красный */
+  --ref-palette-accent-red-300: rgb(252, 165, 165); /* Средний красный, для текста/иконок на темном фоне */
+  --ref-palette-accent-red-500: rgb(239, 68, 68);   /* Основной красный для ошибок */
+  --ref-palette-accent-red-700: rgb(185, 28, 28);   /* Темный красный, для текста/иконок на светлом фоне */
+
+  /* Warning (Yellow/Orange) - Цвета для обозначения предупреждений */
+  --ref-palette-accent-yellow-50: rgb(255, 251, 235);  /* Очень светлый желтый, для фонов уведомлений */
+  --ref-palette-accent-yellow-100: rgb(254, 243, 199); /* Светлый желтый */
+  --ref-palette-accent-yellow-300: rgb(253, 224, 71);  /* Средний желтый, для текста/иконок на темном фоне */
+  --ref-palette-accent-yellow-500: rgb(245, 158, 11);  /* Основной желтый для предупреждений */
+  --ref-palette-accent-yellow-700: rgb(180, 83, 9);    /* Темный желтый, для текста/иконок на светлом фоне */
+
+  /* Custom Colors - Пользовательские цвета для специфических нужд */
+
+
+  /* --- System Tokens (Semantic Roles & Theming) --- */
+  /* Эти токены определяют назначение цвета в UI и ссылаются на Reference Tokens. */
+  /* Именно они меняются для темизации (например, для светлой и темной темы). [3, 1] */
+
+  /* Backgrounds - Фоны различных частей интерфейса */
+  --color-sys-background-default: var(--ref-palette-neutral-0);               /* Основной фон страницы/приложения */
+  --color-sys-background-subtle: var(--ref-palette-neutral-50);                /* Едва заметный фон для разделения секций */
+  --color-sys-background-surface: var(--ref-palette-neutral-0);               /* Фон для элементов "на поверхности" (карточки, модальные окна) */
+  --color-sys-background-surface-raised: var(--ref-palette-neutral-50);       /* Фон для приподнятых элементов, создающих эффект тени */
+  --color-sys-background-interactive-default: var(--ref-palette-neutral-100); /* Фон для интерактивных элементов (например, кнопок) по умолчанию */
+  --color-sys-background-interactive-hover: var(--ref-palette-neutral-300);   /* Фон интерактивных элементов при наведении */
+  --color-sys-background-interactive-active: var(--ref-palette-neutral-500);  /* Фон интерактивных элементов при нажатии/активации */
+  --color-sys-background-disabled: var(--ref-palette-neutral-200);             /* Фон для неактивных (disabled) элементов */
+
+  /* Text - Цвета текста для различных контекстов */
+  --color-sys-text-default: var(--ref-palette-neutral-900);          /* Основной цвет текста */
+  --color-sys-text-subtle: var(--ref-palette-neutral-700);           /* Второстепенный, менее контрастный текст */
+  --color-sys-text-placeholder: var(--ref-palette-neutral-500);      /* Цвет текста-плейсхолдера в полях ввода */
+  --color-sys-text-disabled: var(--ref-palette-neutral-500);         /* Цвет текста для неактивных элементов */
+  --color-sys-text-on-brand: var(--ref-palette-neutral-0);           /* Цвет текста на элементах с основным цветом бренда (например, на кнопках) */
+  --color-sys-text-interactive: var(--ref-palette-brand-blue-600);   /* Цвет для интерактивного текста (ссылки) */
+  --color-sys-text-interactive-hover: var(--ref-palette-brand-blue-700); /* Цвет интерактивного текста при наведении */
+  --color-sys-text-error: var(--ref-palette-accent-red-700);         /* Цвет текста для сообщений об ошибках */
+  --color-sys-text-success: var(--ref-palette-accent-green-700);     /* Цвет текста для сообщений об успехе */
+  --color-sys-text-warning: var(--ref-palette-accent-yellow-700);    /* Цвет текста для предупреждений */
+
+  /* Borders - Цвета границ элементов */
+  --color-sys-border-default: var(--ref-palette-neutral-300);        /* Основной цвет границ */
+  --color-sys-border-subtle: var(--ref-palette-neutral-200);         /* Менее заметный цвет границ */
+  --color-sys-border-interactive: var(--ref-palette-brand-blue-500); /* Цвет границ для интерактивных элементов */
+  --color-sys-border-focus: var(--ref-palette-brand-blue-500);       /* Цвет границ для элементов в фокусе */
+  --color-sys-border-error: var(--ref-palette-accent-red-500);       /* Цвет границ для элементов с ошибкой */
+  --color-sys-border-success: var(--ref-palette-accent-green-500);   /* Цвет границ для элементов, обозначающих успех */
+
+  /* Brand/Action Colors - Семантические цвета бренда и для действий */
+  --color-sys-brand-primary-default: var(--ref-palette-brand-blue-500);       /* Основной цвет бренда по умолчанию */
+  --color-sys-brand-primary-hover: var(--ref-palette-brand-blue-600);         /* Основной цвет бренда при наведении */
+  --color-sys-brand-primary-active: var(--ref-palette-brand-blue-700);        /* Основной цвет бренда в активном состоянии */
+  --color-sys-brand-primary-subtle-background: var(--ref-palette-brand-blue-50); /* Легкий фон с оттенком бренда */
+
+  /* Status Colors - Семантические цвета для различных статусов */
+  --color-sys-status-error-default: var(--ref-palette-accent-red-500);     /* Основной цвет для статуса "ошибка" */
+  --color-sys-status-error-background: var(--ref-palette-accent-red-50);   /* Фон для контейнеров со статусом "ошибка" */
+  --color-sys-status-error-text: var(--ref-palette-accent-red-700);        /* Цвет текста для статуса "ошибка" */
+
+  --color-sys-status-success-default: var(--ref-palette-accent-green-500); /* Основной цвет для статуса "успех" */
+  --color-sys-status-success-background: var(--ref-palette-accent-green-50);/* Фон для контейнеров со статусом "успех" */
+  --color-sys-status-success-text: var(--ref-palette-accent-green-700);    /* Цвет текста для статуса "успех" */
+
+  --color-sys-status-warning-default: var(--ref-palette-accent-yellow-500);/* Основной цвет для статуса "предупреждение" */
+  --color-sys-status-warning-background: var(--ref-palette-accent-yellow-50);/* Фон для контейнеров со статусом "предупреждение" */
+  --color-sys-status-warning-text: var(--ref-palette-accent-yellow-700);   /* Цвет текста для статуса "предупреждение" */
+
+
+  /* --- Component Tokens (UI Elements) --- */
+  /* Эти токены специфичны для компонентов и используют System Tokens. */
+  /* Это помогает отделить логику компонента от глобальной темы и упрощает кастомизацию отдельных компонентов. [3, 1] */
+
+  /* Button - Primary (Основная кнопка) */
+  --color-comp-button-primary-background-default: var(--color-sys-brand-primary-default); /* Фон основной кнопки по умолчанию */
+  --color-comp-button-primary-background-hover: var(--color-sys-brand-primary-hover);     /* Фон основной кнопки при наведении */
+  --color-comp-button-primary-background-active: var(--color-sys-brand-primary-active);   /* Фон основной кнопки при нажатии */
+  --color-comp-button-primary-text-default: var(--color-sys-text-on-brand);             /* Цвет текста основной кнопки */
+
+  /* Button - Secondary / Outline (Второстепенная/контурная кнопка) */
+  --color-comp-button-secondary-background-default: var(--color-sys-background-default);    /* Фон второстепенной кнопки по умолчанию */
+  --color-comp-button-secondary-background-hover: var(--ref-palette-neutral-50);            /* Фон второстепенной кнопки при наведении */
+  --color-comp-button-secondary-background-active: var(--ref-palette-neutral-100);          /* Фон второстепенной кнопки при нажатии */
+  --color-comp-button-secondary-text-default: var(--color-sys-text-interactive);            /* Цвет текста второстепенной кнопки */
+  --color-comp-button-secondary-border-default: var(--color-sys-border-interactive);        /* Цвет границы второстепенной кнопки */
+
+  /* Button - Destructive (Кнопка для опасных действий) */
+  --color-comp-button-destructive-background-default: var(--color-sys-status-error-default); /* Фон "опасной" кнопки по умолчанию */
+  --color-comp-button-destructive-background-hover: var(--ref-palette-accent-red-700);       /* Фон "опасной" кнопки при наведении */
+  /* --color-comp-button-destructive-background-active: var(--ref-palette-accent-red-900); */ /* Фон "опасной" кнопки при нажатии (потребует --ref-palette-accent-red-900) */
+  --color-comp-button-destructive-text-default: var(--color-sys-text-on-brand);            /* Цвет текста "опасной" кнопки */
+
+  /* Button - Disabled (Неактивная кнопка) */
+  --color-comp-button-disabled-background: var(--color-sys-background-disabled); /* Фон неактивной кнопки */
+  --color-comp-button-disabled-text: var(--color-sys-text-disabled);             /* Цвет текста неактивной кнопки */
+
+  /* Input/Forms (Поля ввода и формы) */
+  --color-comp-input-background-default: var(--color-sys-background-default);    /* Фон поля ввода по умолчанию */
+  --color-comp-input-text-default: var(--color-sys-text-default);                /* Цвет текста в поле ввода */
+  --color-comp-input-text-placeholder: var(--color-sys-text-placeholder);        /* Цвет плейсхолдера в поле ввода */
+  --color-comp-input-border-default: var(--color-sys-border-default);            /* Цвет границы поля ввода по умолчанию */
+  --color-comp-input-border-hover: var(--color-sys-border-interactive);          /* Цвет границы поля ввода при наведении */
+  --color-comp-input-border-focus: var(--color-sys-border-focus);                /* Цвет границы поля ввода в фокусе */
+  --color-comp-input-border-error: var(--color-sys-border-error);                /* Цвет границы поля ввода при ошибке */
+  --color-comp-input-disabled-background: var(--color-sys-background-disabled);  /* Фон неактивного поля ввода */
+  --color-comp-input-disabled-text: var(--color-sys-text-disabled);              /* Цвет текста неактивного поля ввода */
+  --color-comp-input-disabled-border: var(--color-sys-border-subtle);            /* Цвет границы неактивного поля ввода */
+
+  /* Card (Карточки) */
+  --color-comp-card-background-default: var(--color-sys-background-surface); /* Фон карточки */
+  --color-comp-card-border-default: var(--color-sys-border-subtle);          /* Цвет границы карточки */
+  /* --color-comp-card-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1); */ /* Пример тени для карточки, можно использовать ref-токены с альфа-каналом */
+
+  /* Link (Ссылки) */
+  --color-comp-link-text-default: var(--color-sys-text-interactive);       /* Цвет текста ссылки по умолчанию */
+  --color-comp-link-text-hover: var(--color-sys-text-interactive-hover);   /* Цвет текста ссылки при наведении */
+
+  /* Header (Шапка сайта) - специфичные для хедера токены, если нужны */
+  --color-comp-header-background: hsl(from var(--color-sys-background-default) h s calc(l - 10) / 0.5);        /* Фон для хедера (шапки сайта) по умолчанию (светлая тема) */
+  --color-comp-header-text-color: var(--color-sys-text-default);           /* Цвет текста в хедере */
+  --color-comp-header-border-color: var(--color-sys-border-subtle);        /* Цвет границы хедера (если есть) */
+
+  /* Burger-menu */
+  --color-comp-burger-menu-hover: hsl(from var(--color-comp-header-background) h s calc(l - 5) / 0.5);
+  --color-comp-burger-menu-border-hover: hsl(from var(--color-comp-burger-menu-hover) h s calc(l - 10) / 0.5);
+}
+
+@layer base {
+  [data-theme="dark"] {
+    /* --- System Tokens (Dark Theme Overrides) --- */
+    /* Переопределение System Tokens для темной темы. Они ссылаются на те же Reference Tokens, */
+    /* но выбирают другие значения из палитры для достижения темного вида. [4, 3] */
+
+    /* Backgrounds */
+    --color-sys-background-default: var(--ref-palette-neutral-950);               /* Основной фон страницы (темный) */
+    --color-sys-background-subtle: var(--ref-palette-neutral-900);                /* Едва заметный фон (темный) */
+    --color-sys-background-surface: var(--ref-palette-neutral-900);               /* Фон для элементов "на поверхности" (темный) */
+    --color-sys-background-surface-raised: var(--ref-palette-neutral-800);       /* Фон для приподнятых элементов (темный) */
+    --color-sys-background-interactive-default: var(--ref-palette-brand-blue-500); /* Фон интерактивных элементов */
+    --color-sys-background-interactive-hover: var(--ref-palette-brand-blue-300);   /* Фон интерактивных элементов при наведении (светлее для темной темы) */
+    --color-sys-background-interactive-active: var(--ref-palette-brand-blue-100);  /* Фон интерактивных элементов при нажатии (еще светлее) */
+    --color-sys-background-disabled: var(--ref-palette-neutral-800);             /* Фон для неактивных элементов (темный) */
+
+    /* Text */
+    --color-sys-text-default: var(--ref-palette-neutral-100);          /* Основной цвет текста (светлый на темном фоне) */
+    --color-sys-text-subtle: var(--ref-palette-neutral-400);           /* Второстепенный текст (светлый) */
+    --color-sys-text-placeholder: var(--ref-palette-neutral-500);      /* Цвет плейсхолдера (светлый) */
+    --color-sys-text-disabled: var(--ref-palette-neutral-600);         /* Цвет текста неактивных элементов (темный серый) */
+    --color-sys-text-on-brand: var(--ref-palette-neutral-950);         /* Цвет текста на элементах с основным цветом бренда (темный, если бренд светлый) */
+    --color-sys-text-interactive: var(--ref-palette-brand-blue-300);   /* Цвет интерактивного текста (светлый синий) */
+    --color-sys-text-interactive-hover: var(--ref-palette-brand-blue-100); /* Цвет интерактивного текста при наведении (еще светлее) */
+    --color-sys-text-error: var(--ref-palette-accent-red-300);         /* Цвет текста для ошибок (светлый красный) */
+    --color-sys-text-success: var(--ref-palette-accent-green-300);     /* Цвет текста для успеха (светлый зеленый) */
+    --color-sys-text-warning: var(--ref-palette-accent-yellow-300);    /* Цвет текста для предупреждений (светлый желтый) */
+
+    /* Borders */
+    --color-sys-border-default: var(--ref-palette-neutral-700);        /* Основной цвет границ (темный) */
+    --color-sys-border-subtle: var(--ref-palette-neutral-800);         /* Менее заметный цвет границ (темный) */
+    --color-sys-border-interactive: var(--ref-palette-brand-blue-300); /* Цвет границ для интерактивных элементов (светлый синий) */
+    --color-sys-border-focus: var(--ref-palette-brand-blue-300);       /* Цвет границ для элементов в фокусе (светлый синий) */
+    --color-sys-border-error: var(--ref-palette-accent-red-500);       /* Цвет границ для элементов с ошибкой (может быть тот же или светлее) */
+    --color-sys-border-success: var(--ref-palette-accent-green-500);   /* Цвет границ для элементов успеха (может быть тот же или светлее) */
+
+    /* Brand/Action Colors - Семантические цвета бренда для темной темы */
+    --color-sys-brand-primary-default: var(--ref-palette-brand-blue-300);       /* Основной цвет бренда (светлее для контраста) */
+    --color-sys-brand-primary-hover: var(--ref-palette-brand-blue-100);         /* Основной цвет бренда при наведении (еще светлее) */
+    --color-sys-brand-primary-active: var(--ref-palette-brand-blue-50);         /* Основной цвет бренда в активном состоянии (очень светлый) */
+    --color-sys-brand-primary-subtle-background: var(--ref-palette-neutral-800); /* Легкий фон с оттенком бренда (темный) */
+
+    /* Status Colors - Семантические цвета статусов для темной темы */
+    --color-sys-status-error-default: var(--ref-palette-accent-red-300);     /* Основной цвет для статуса "ошибка" (светлый) */
+    --color-sys-status-error-background: var(--ref-palette-neutral-800);   /* Фон для контейнеров "ошибка" (темный, для акцента на тексте) */
+    --color-sys-status-error-text: var(--ref-palette-accent-red-100);        /* Цвет текста для статуса "ошибка" (очень светлый) */
+
+    --color-sys-status-success-default: var(--ref-palette-accent-green-300); /* Основной цвет для статуса "успех" (светлый) */
+    --color-sys-status-success-background: var(--ref-palette-neutral-800); /* Фон для контейнеров "успех" (темный) */
+    --color-sys-status-success-text: var(--ref-palette-accent-green-100);    /* Цвет текста для статуса "успех" (очень светлый) */
+
+    --color-sys-status-warning-default: var(--ref-palette-accent-yellow-300);/* Основной цвет для статуса "предупреждение" (светлый) */
+    --color-sys-status-warning-background: var(--ref-palette-neutral-800); /* Фон для контейнеров "предупреждение" (темный) */
+    --color-sys-status-warning-text: var(--ref-palette-accent-yellow-100);   /* Цвет текста для статуса "предупреждение" (очень светлый) */
+
+    --color-comp-burger-menu-hover: hsl(from var(--color-comp-header-background) h s calc(l + 18) / 0.5);
+    --color-comp-burger-menu-border-hover: hsl(from var(--color-comp-burger-menu-hover) h s calc(l + 10) / 0.5);
+    /* Component tokens автоматически унаследуют обновленные system токены. */
+    /* Нет необходимости переопределять их здесь, если только не нужны специфичные изменения */
+    /* для компонентов именно в темной теме, что реже встречается для чисто цветовой темизации. */
+    /* Однако, если компонент хедера должен иметь специфичный цвет текста в темной теме, можно переопределить: */
+    /* --color-comp-header-text-color: var(--color-sys-text-default); */ /* или другой подходящий системный токен для текста в темной теме */
+  }
+}

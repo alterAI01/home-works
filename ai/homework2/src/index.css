@@ -1,0 +1,29 @@
+html {
+  background-color: bg-sys-background-default;
+}
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --z-index-base: 1;
+  --z-index-sticky: 10;
+  --z-index-dropdown: 20;
+  --z-index-tooltip: 30;
+  --z-index-overlay: 40;
+  --z-index-mobile-sidebar: 45;
+  --z-index-modal: 50;
+  --z-index-notification: 60;
+  --z-index-loader: 70;
+  --z-index-debug: 100;
+}
